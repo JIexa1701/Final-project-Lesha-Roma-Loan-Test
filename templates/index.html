@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Loan Status</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="int_rate" placeholder="int_rate" required="required" />
+        <input type="text" name="installment" placeholder="installment" required="required" />
+		<input type="text" name="total_rec_prncp" placeholder="total_rec_prncp" required="required" />
+		<input type="text" name="total_rec_late_fee" placeholder="total_rec_late_fee" required="required" />
+		<input type="text" name="tot_cur_bal" placeholder="tot_cur_bal" required="required" />
+		<input type="text" name="total_rev_hi_lim" placeholder="total_rev_hi_lim" required="required" />
+		<input type="text" name="recoveries" placeholder="recoveries" required="required" />
+		<input type="text" name="out_prncp_inv" placeholder="out_prncp_inv" required="required" />
+		<input type="text" name="inq_last_6mths" placeholder="inq_last_6mths" required="required" />
+		<input type="text" name="sub_grade" placeholder="sub_grade" required="required" />
+		
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
